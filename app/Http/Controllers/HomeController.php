@@ -11,9 +11,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __index()
     {
-        $this->middleware('auth');
+        $data['products'] = Product::paginate(5);
+        return view('index', $data);
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -23,7 +23,9 @@ class PageController extends Controller
 
     public function clients()
     {
-        return view('clients');
+        //return view('clients');
+        $data['products'] = Product::paginate(6);
+        return view('clients', $data);
     }
 
     public function contact()
